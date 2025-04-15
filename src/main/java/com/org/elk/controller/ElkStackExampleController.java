@@ -22,7 +22,10 @@ public class ElkStackExampleController
 	public User getUserById(@PathVariable int id)
 	{
 		List<User> users = getUsers();
-		User user = users.stream().filter(u -> u.getId() == id).findAny().orElse(null);
+		User user = users.stream()
+				.filter(u -> u.getId() == id)
+				.findAny()
+				.orElse(null);
 		if(user != null)
 		{
 			log.info("user found : {}", user);
